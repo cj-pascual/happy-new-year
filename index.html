@@ -1,0 +1,391 @@
+`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For my Disney Princess</title>
+    <style>
+        body {
+            font-family: 'Lora', serif; /* Or your chosen font */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #141624, #24243e); /* Night sky gradient */
+            background-size: 400% 400%; 
+            animation: gradient 15s ease infinite;
+            color: #fff; /* Text color: white */
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Cloud styling */
+        .cloud {
+            background: rgba(255, 255, 255, 0.2); /* Increased opacity */
+            filter: blur(5px); /* Reduced blur */
+        }
+
+        .cloud:nth-child(1) {
+            width: 150px;
+            height: 50px;
+            top: 20%;
+            left: -20%;
+            animation: floatCloud 20s linear infinite;
+        }
+
+        .cloud:nth-child(2) {
+            width: 200px;
+            height: 60px;
+            top: 40%;
+            left: -30%;
+            animation: floatCloud 25s linear infinite;
+        }
+
+        .cloud:nth-child(3) {
+            width: 180px;
+            height: 55px;
+            top: 60%;
+            left: -25%;
+            animation: floatCloud 22s linear infinite;
+        }
+
+        /* Cloud animation */
+        @keyframes floatCloud {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(120vw);
+            }
+        }
+
+        /* Firework rocket animation */
+        @keyframes rocket {
+            0% {
+                transform: translateY(100%);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200%);
+                opacity: 0;
+            }
+        }
+
+        /* Firework burst animation */
+        @keyframes burst {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            opacity: 0.2; 
+            z-index: -1;
+        }
+
+        .background-image:nth-child(1) {
+            background-image: url('C:\Users\carlp\Desktop\New folder\1.jpg'); 
+            background-size: cover; 
+            animation: imageScroll1 15s linear infinite; 
+        }
+
+        .background-image:nth-child(2) {
+            background-image: url('path/to/image2.jpg'); 
+            background-size: cover; 
+            animation: imageScroll2 20s linear infinite; 
+        }
+
+        .background-image:nth-child(3) {
+            background-image: url('path/to/image3.jpg'); 
+            background-size: cover; 
+            animation: imageScroll3 25s linear infinite; 
+        }
+
+        .background-image:nth-child(4) {
+            background-image: url('path/to/image4.jpg'); 
+            background-size: cover; 
+            animation: imageScroll4 30s linear infinite; 
+        }
+
+        .background-image:nth-child(5) {
+            background-image: url('path/to/image5.jpg'); 
+            background-size: cover; 
+            animation: imageScroll5 35s linear infinite; 
+        }
+
+        .background-image:nth-child(6) {
+            background-image: url('path/to/image6.jpg'); 
+            background-size: cover; 
+            animation: imageScroll6 40s linear infinite; 
+        }
+
+        @keyframes imageScroll1 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        @keyframes imageScroll2 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        @keyframes imageScroll3 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        @keyframes imageScroll4 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        @keyframes imageScroll5 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        @keyframes imageScroll6 {
+            0% {
+                transform: translateX(0%); 
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+        /* Rocket trail */
+        .rocket {
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+            height: 100px;
+            background: linear-gradient(to top, orange, yellow);
+            border-radius: 2px;
+            animation: rocket 2s ease-out infinite;
+        }
+
+        /* Firework burst effect */
+        .burst {
+            position: absolute;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: burst 1.5s ease-out infinite;
+        }
+
+        .burst:nth-child(odd) {
+            background-color: rgba(255, 69, 0, 0.8);
+        }
+
+        .burst:nth-child(even) {
+            background-color: rgba(255, 215, 0, 0.8);
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup {
+            padding: 20px;
+            text-align: center;
+            max-width: 90%;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideBackAndForth {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes slideLefttoRight {
+            0% {
+                transform: translateX(100%);
+            }
+            50% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .image-left {
+            position: relative;
+            animation: slideBackAndForth 5s linear infinite;
+            width: 50px; /* Adjust the size of the image */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .image-right {
+            position: relative;
+            animation: slideLefttoRight 5s linear infinite;
+            width: 50px; /* Adjust the size of the image */
+            height: 50px;
+            margin-left: 10px;
+            transform: translateY(10px); /* Adjust position to the bottom */
+        }
+
+        .popup h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .popup p {
+            margin: 10px 0 20px;
+            color: #555;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .popup button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .popup button:hover {
+            background: #0056b3;
+        }
+
+        /* Remove any existing borders */
+        * {
+            border: none !important; 
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+
+    <div class="rocket" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="rocket" style="left: 40%; animation-delay: 0.5s;"></div>
+    <div class="rocket" style="left: 60%; animation-delay: 1s;"></div>
+    <div class="rocket" style="left: 80%; animation-delay: 1.5s;"></div>
+    <div class="rocket" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="rocket" style="left: 50%; animation-delay: 0.5s;"></div>
+    <div class="rocket" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="rocket" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <div class="burst" style="left: 20%; top: 40%; animation-delay: 2s;"></div>
+    <div class="burst" style="left: 40%; top: 50%; animation-delay: 2.5s;"></div>
+    <div class="burst" style="left: 60%; top: 45%; animation-delay: 3s;"></div>
+    <div class="burst" style="left: 80%; top: 35%; animation-delay: 3.5s;"></div>
+    <div class="burst" style="left: 10%; top: 40%; animation-delay: 2s;"></div>
+    <div class="burst" style="left: 50%; top: 50%; animation-delay: 2.5s;"></div>
+    <div class="burst" style="left: 70%; top: 45%; animation-delay: 3s;"></div>
+    <div class="burst" style="left: 90%; top: 35%; animation-delay: 3.5s;"></div>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <h1>For my Disney Princess.</h1>
+            <h1>Happy New Year, Myziel! 🎉</h1>
+            <p>
+
+
+                
+
+                As the year comes to an end, As the clock strikes midnight, I want you to know how much you mean to me. I’m thankful that I met you. 
+                I wish this 2025 will bring more joy and success for both of us. I hope that we and our loved ones win in life. 
+    There’s a lot that I wanted to show you, but for now, I hope you understand that I just started chasing my dreams so please bare with me. Just know that every step of the way, you’re part of that dream too. And I want you to be on that journey with me. 
+     I will always be your number one fan. 
+    A shoulder to lean on; whenever you want to rant, I will listen.
+     Even when you’re speaking in medical terms, I will try to understand what you’re talking about (I will try to google it). 
+    That’s it. Again, thank you for making me happy, and happy new year! 🎉
+
+
+
+
+
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+    
+    </body>
+    </html>
